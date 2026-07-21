@@ -21,7 +21,7 @@ designer → implementer → validator → (enhancer on failure)
 
 1. **Fork & branch** from `main`. Use a descriptive branch name (e.g. `fix/validator-preflight-contract`).
 2. **Make your change.** Match the surrounding tone, comment density, and structure.
-3. **Validate any skill you touched:**
+3. **Validate any skill you touched** (requires Python 3; on Windows use `python` or `py -3` in place of `python3`):
 
    ```bash
    python3 skills/skill-creator/scripts/quick_validate.py skills/<name>

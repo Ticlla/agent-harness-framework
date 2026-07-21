@@ -10,6 +10,13 @@ Domain skills (code review, req-doc generation, Playwright migration, etc.) live
 
 > **Hosting:** clone or fork to your own remote; paths below assume a local sibling layout.
 
+## Prerequisites
+
+| Need | Why | Notes |
+|------|-----|-------|
+| **Python 3.8+** | `skill-creator` scripts (`init_skill.py`, `package_skill.py`, `quick_validate.py`) — stdlib only, no `pip` | Windows: `python3` is usually **not** on PATH. Use `python` or `py -3` (e.g. `py -3 skills/skill-creator/scripts/quick_validate.py skills/<name>`). |
+| **POSIX shell** | `scripts/install.sh` | Windows: run under **Git Bash** or **WSL**. |
+
 ## Quick start
 
 Clone both repos as **siblings** so delegate discovery works:
@@ -69,14 +76,31 @@ python3 skills/skill-creator/scripts/quick_validate.py skills/enhancer
 
 ## Installing skills locally
 
-Copy or symlink meta-skills into your agent skills directory:
+Use the bundled installer to copy the five meta-skills into your agent runtime:
 
 ```bash
-# Cursor example
+./scripts/install.sh                          # copy into ~/.claude/skills (default)
+./scripts/install.sh install --target cursor  # copy into ~/.cursor/skills
+./scripts/install.sh status                   # show what is installed where
+./scripts/install.sh uninstall -y             # remove them (leaves other skills alone)
+```
+
+Copies are self-contained — you can move or delete this repo afterwards and the
+skills keep working. Update later with `git pull && ./scripts/install.sh`.
+
+Options: `--link` (symlink to this repo instead of copying, tracks `git pull` live),
+`--target <path>` (any directory), `--skills a,b,c` (subset), `--help`.
+
+<details><summary>Manual install (no script)</summary>
+
+```bash
+# Cursor example — symlink each meta-skill into your skills dir
 for s in designer implementer validator enhancer skill-creator; do
   ln -sfn "$(pwd)/skills/$s" ~/.cursor/skills/$s
 done
 ```
+
+</details>
 
 Also install domain skills from your sibling delegate repo when a harness references them.
 

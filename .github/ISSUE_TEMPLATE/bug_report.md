@@ -24,7 +24,7 @@ labels: bug
 - Meta-skill(s) involved (`designer` / `implementer` / `validator` / `enhancer`):
 - Agent runtime (Cursor / agent CLI / other):
 - OS:
-- Did `quick_validate.py` pass? <!-- run: python3 skills/skill-creator/scripts/quick_validate.py skills/<name> -->
+- Did `quick_validate.py` pass? <!-- run: python3 skills/skill-creator/scripts/quick_validate.py skills/<name> (Windows: python / py -3) -->
 
 ## Logs / output
 

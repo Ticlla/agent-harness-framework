@@ -19,7 +19,7 @@
 
 - [ ] I read [AGENTS.md](../AGENTS.md) and matched the surrounding style.
 - [ ] I edited the **canonical** design (`harness-designs/<orch>/HARNESS_DESIGN.md`), not a generated copy under `skills/<orch>/references/`.
-- [ ] I ran `python3 skills/skill-creator/scripts/quick_validate.py skills/<name>` for every meta-skill I touched and it passed.
+- [ ] I ran `python3 skills/skill-creator/scripts/quick_validate.py skills/<name>` for every meta-skill I touched and it passed. (Windows: use `python` or `py -3` in place of `python3`.)
 - [ ] No secrets, tokens, or local settings (`.claude/`) are included in this PR.
 - [ ] I updated docs where the change affects behavior.
 

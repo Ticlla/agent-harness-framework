@@ -26,6 +26,7 @@ Do **not** use for: writing `HARNESS_DESIGN.md` (`designer`), feedback-driven pi
 ## Prerequisites
 
 - `skills/skill-creator/` available
+- **Python 3.8+** installed and on PATH (stdlib only — no `pip` packages). The `skill-creator` scripts (`init_skill.py`, `package_skill.py`, `quick_validate.py`) are run via an interpreter that the agent must **detect before invoking**: try `python3 --version`, then `python --version`, then `py -3 --version`; use the first that reports `Python 3.`. If none works, **stop and tell the user to install Python 3 before proceeding** — do not run any scaffold/package step. Windows: `python3` is usually absent from PATH — use `python` or `py -3` (e.g. `py -3 skills/skill-creator/scripts/init_skill.py …`).
 - Design file readable at `HARNESS_DESIGN_PATH` (required for multi-harness repos). If unset, resolve from §13 orchestrator name: `harness-designs/<name>/HARNESS_DESIGN.md`. Do not use repo-root `HARNESS_DESIGN.md` (catalog pointer only).
 
 ## Workflow
@@ -53,6 +54,7 @@ Resolve the **orchestrator home** from §13 (`Orchestrator home`). Default `skil
 
 ```bash
 # <home> = §13 Orchestrator home (default: skills)
+# Use the detected Python 3 interpreter: python3 (POSIX) | python | py -3 (Windows).
 python3 skills/skill-creator/scripts/init_skill.py <orchestrator-name> --path <home>
 ```
 
@@ -86,6 +88,7 @@ Orchestrator YAML `description`: from §13 AGENTS.md index line.
 ### 6. Register and package
 
 ```bash
+# Use the detected Python 3 interpreter: python3 (POSIX) | python | py -3 (Windows).
 python3 skills/skill-creator/scripts/package_skill.py <home>/<orchestrator-name> skills/skill-creator/dist
 ```
 

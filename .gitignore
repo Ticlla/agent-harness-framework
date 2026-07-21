@@ -42,6 +42,7 @@ dmypy.json
 
 # Agent CLI local settings
 .claude/
+.claude.*/
 **/.claude/settings.local.json
 
 # OS

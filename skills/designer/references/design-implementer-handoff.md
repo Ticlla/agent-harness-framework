@@ -51,6 +51,7 @@ before trusting the harness in production.
 
 Implementer **rejects or pauses** if:
 
+- No Python 3 interpreter detected (`python3` → `python` → `py -3`) → stop and tell the user to install Python 3 before scaffolding (Windows: `python3` is usually absent from PATH — use `python` or `py -3`)
 - §13 missing → ask to run `designer`
 - `HARNESS_DESIGN_PATH` points at repo-root `HARNESS_DESIGN.md` (pointer only) → use `harness-designs/<name>/HARNESS_DESIGN.md`
 - §14 missing → derive Mermaid per `mermaid-diagrams.md`, then **append §14 to the source design file** under `harness-designs/`

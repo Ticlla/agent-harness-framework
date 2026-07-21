@@ -129,6 +129,10 @@ Example: When building a `big-query` skill to handle queries like "How many user
 
 To establish the skill's contents, analyze each concrete example to create a list of the reusable resources to include: scripts, references, and assets.
 
+### Prerequisites (Python 3)
+
+All bundled scripts (`scripts/init_skill.py`, `scripts/package_skill.py`, `scripts/quick_validate.py`) are **Python 3.8+, stdlib only** — no `pip` packages required. Before running any of them, **detect the interpreter**: try `python3 --version`, then `python --version`, then `py -3 --version`; use the first that reports `Python 3.`. If none works, **stop and ask the user to install Python 3 before proceeding**. Windows: `python3` is usually not on PATH — use `python` or `py -3` (e.g. `py -3 scripts/quick_validate.py <skill>`). The shebang (`#!/usr/bin/env python3`) does not work on Windows, so always invoke via the detected interpreter rather than executing the file directly.
+
 ### Step 3: Initializing the Skill
 
 At this point, it is time to actually create the skill.
@@ -140,7 +144,8 @@ When creating a new skill from scratch, always run the `init_skill.py` script. T
 Usage:
 
 ```bash
-scripts/init_skill.py <skill-name> --path <output-directory>
+# Use the detected Python 3 interpreter: python3 (POSIX) | python | py -3 (Windows).
+python3 scripts/init_skill.py <skill-name> --path <output-directory>
 ```
 
 The script:
@@ -177,13 +182,14 @@ To complete SKILL.md, answer the following questions:
 Once the skill is ready, it should be packaged into a distributable zip file that gets shared with the user. The packaging process automatically validates the skill first to ensure it meets all requirements:
 
 ```bash
-scripts/package_skill.py <path/to/skill-folder>
+# Use the detected Python 3 interpreter: python3 (POSIX) | python | py -3 (Windows).
+python3 scripts/package_skill.py <path/to/skill-folder>
 ```
 
 Optional output directory specification:
 
 ```bash
-scripts/package_skill.py <path/to/skill-folder> ./dist
+python3 scripts/package_skill.py <path/to/skill-folder> ./dist
 ```
 
 The packaging script will:
