@@ -1,0 +1,12 @@
+flowchart TD
+    S([Start]) --> IN[Intake worklist]
+    IN --> SET[Setup worktree]
+    SET --> L{More work?}
+    L -->|yes| W[Delegate sub-workflow]
+    W --> G[gate: section 7 verification]
+    G --> P{Pass?}
+    P -->|no| F[Record failure: enhancer signal / operator escalation]
+    F --> L
+    P -->|yes| L
+    L -->|no| H[Human review HITL]
+    H --> E([PR / merge])

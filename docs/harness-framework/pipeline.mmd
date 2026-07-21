@@ -1,0 +1,18 @@
+flowchart TD
+    subgraph META["META SKILLS — operate on any harness"]
+      direction LR
+      HD["designer<br/>design only"]
+      HI["implementer<br/>build orchestrator"]
+      HV["validator<br/>smoke 1–2 items<br/>or rules-only review"]
+      HE["enhancer<br/>fix / sync / patch"]
+    end
+    HD -->|"HARNESS_DESIGN.md<br/>13 plan + 14 mermaid"| HI
+    HI -->|"skills/orch/<br/>SKILL.md + refs"| HV
+    HV -->|"PASS + human sign-off<br/>VALIDATION_REPORT.md"| RUN
+    HV -.->|"FAIL signal"| HE
+    HI -.->|"preflight fail / drift"| HE
+    RUN -.->|"runtime mismatch / feedback"| HE
+    HE -->|"EnhancementBrief patches"| HD
+    HE -->|"re-run when needed"| HI
+    HE -.->|"mark report stale +<br/>re-validate (max 2 rounds)"| HV
+    RUN(["ORCHESTRATOR runs<br/>real batch in production"])

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Three-Question Rule</title>
+  <desc id="desc">Use the harness framework when you answer yes three times: many items, repeat work, mistakes hurt.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2E7D32"/>
+    </marker>
+  </defs>
+  <text x="600" y="48" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="600" fill="#1a1a1a">Should I use the harness framework?</text>
+  <text x="600" y="82" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" fill="#888888">Three yeses -&gt; build with designer</text>
+  <g font-family="IBM Plex Sans, system-ui, sans-serif">
+    <rect x="120" y="160" width="280" height="130" rx="14" fill="#ffffff" stroke="#2E7D32" stroke-width="2"/>
+    <rect x="140" y="178" width="36" height="36" rx="8" fill="#2E7D32"/>
+    <text x="158" y="202" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">1</text>
+    <text x="290" y="200" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">Same job on</text>
+    <text x="290" y="224" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">many items?</text>
+    <text x="290" y="258" text-anchor="middle" font-size="12" fill="#666666">migration / port / cleanup</text>
+    <rect x="460" y="160" width="280" height="130" rx="14" fill="#ffffff" stroke="#2E7D32" stroke-width="2"/>
+    <rect x="480" y="178" width="36" height="36" rx="8" fill="#2E7D32"/>
+    <text x="498" y="202" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">2</text>
+    <text x="600" y="200" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">Will it run</text>
+    <text x="600" y="224" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">again?</text>
+    <text x="600" y="258" text-anchor="middle" font-size="12" fill="#666666">not a one-off handoff</text>
+    <rect x="800" y="160" width="280" height="130" rx="14" fill="#ffffff" stroke="#2E7D32" stroke-width="2"/>
+    <rect x="820" y="178" width="36" height="36" rx="8" fill="#2E7D32"/>
+    <text x="838" y="202" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">3</text>
+    <text x="940" y="200" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">Would a mistake</text>
+    <text x="940" y="224" text-anchor="middle" font-size="16" font-weight="600" fill="#2E7D32">hurt?</text>
+    <text x="940" y="258" text-anchor="middle" font-size="12" fill="#666666">partial batch / silent done</text>
+    <path d="M400 225 L460 225" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M740 225 L800 225" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="180" y="380" width="360" height="100" rx="14" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="360" y="420" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="18" font-weight="600" fill="#2E7D32">3 x YES</text>
+  <text x="360" y="450" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#444444">-&gt; designer + pipeline</text>
+  <rect x="660" y="380" width="360" height="100" rx="14" fill="#f5f5f5" stroke="#888888" stroke-width="2"/>
+  <text x="840" y="420" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="18" font-weight="600" fill="#666666">Any NO</text>
+  <text x="840" y="450" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#666666">-&gt; use a normal skill directly</text>
+  <text x="600" y="560" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="14" fill="#888888">Plan once / test on one / run on all / checks at every step</text>
+</svg>

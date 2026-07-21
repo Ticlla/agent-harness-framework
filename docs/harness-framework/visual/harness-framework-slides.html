@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harness Framework — Presentation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif: 'Crimson Pro', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+  --bg: #f8f6f1;
+  --surface: #ffffff;
+  --border: rgba(30, 58, 95, 0.12);
+  --text: #1e3a5f;
+  --text-dim: #4a6278;
+  --gold: #b8860b;
+  --gold-dim: rgba(184, 134, 11, 0.12);
+  --teal: #0d5c63;
+  --sage: #3d6b4f;
+  --slide-pad: clamp(1.5rem, 4vw, 3rem);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1a28;
+    --surface: #162232;
+    --border: rgba(255,255,255,0.08);
+    --text: #e8eef4;
+    --text-dim: #9eb0c2;
+    --gold: #d4a73a;
+    --gold-dim: rgba(212, 167, 58, 0.12);
+    --teal: #5eead4;
+  }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.45;
+}
+.deck {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+}
+.slides {
+  display: flex;
+  height: 100%;
+  transition: transform .45s cubic-bezier(.4,0,.2,1);
+}
+.slide {
+  flex: 0 0 100vw;
+  height: 100vh;
+  padding: var(--slide-pad);
+  padding-bottom: calc(var(--slide-pad) + 3rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+.slide-inner {
+  width: min(1100px, 100%);
+  max-height: 100%;
+}
+.slide-label {
+  font-family: var(--font-mono);
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: .5rem;
+}
+h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: .75rem;
+}
+h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  margin-bottom: .75rem;
+}
+.lead { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--text-dim); max-width: 38rem; }
+.sub { font-size: .95rem; color: var(--text-dim); margin-top: .5rem; }
+ul.compact { margin: .75rem 0 0 1.1rem; color: var(--text-dim); font-size: .95rem; }
+ul.compact li { margin: .35rem 0; }
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+@media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+.card h3 { font-size: .95rem; margin-bottom: .35rem; }
+.card p { font-size: .85rem; color: var(--text-dim); }
+.card--yes { border-color: var(--sage); }
+.illustration {
+  display: block;
+  width: 100%;
+  max-height: min(52vh, 420px);
+  height: auto;
+  object-fit: contain;
+  margin: .75rem 0;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .82rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: .75rem;
+}
+th, td { padding: .5rem .65rem; text-align: left; border-top: 1px solid var(--border); }
+th { background: var(--gold-dim); font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; }
+code { font-family: var(--font-mono); font-size: .85em; background: var(--gold-dim); padding: .08em .3em; border-radius: 4px; }
+.tagline { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); }
+.flow {
+  display: flex; flex-wrap: wrap; gap: .4rem; align-items: center;
+  font-family: var(--font-mono); font-size: .78rem; margin-top: 1rem;
+}
+.flow span {
+  background: var(--surface); border: 1px solid var(--border);
+  padding: .35rem .55rem; border-radius: 6px;
+}
+.flow .arr { border: none; background: none; color: var(--gold); }
+.title-slide { text-align: center; }
+.title-slide .slide-inner { display: flex; flex-direction: column; align-items: center; }
+.title-slide h1 { font-size: clamp(2.5rem, 6vw, 4rem); }
+.title-slide .lead { text-align: center; max-width: 32rem; }
+.controls {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: .65rem 1rem;
+  background: color-mix(in srgb, var(--bg) 92%, transparent);
+  border-top: 1px solid var(--border);
+  backdrop-filter: blur(8px);
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: .75rem;
+  color: var(--text-dim);
+}
+.controls button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 8px;
+  padding: .4rem .75rem;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+.controls button:hover { border-color: var(--gold); color: var(--gold); }
+.controls button:disabled { opacity: .4; cursor: not-allowed; }
+.progress { flex: 1; max-width: 200px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 1rem; overflow: hidden; }
+.progress-bar { height: 100%; background: var(--gold); transition: width .35s ease; }
+@media print {
+  html, body { overflow: visible; height: auto; }
+  .deck { height: auto; overflow: visible; }
+  .slides { flex-direction: column; transform: none !important; }
+  .slide { page-break-after: always; height: auto; min-height: 100vh; }
+  .controls { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+  <div class="slides" id="slides">
+
+    <section class="slide title-slide" data-title="Title">
+      <div class="slide-inner">
+        <p class="tagline">agent-harness-framework</p>
+        <h1>Harness Framework</h1>
+        <p class="lead">Plan once, prove on one item, run the full batch — with gates at every step and sign-off before anything ships.</p>
+        <p class="sub" style="margin-top:1.5rem">Arrow keys / Space / click Next</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Problem">
+      <div class="slide-inner">
+        <p class="slide-label">Problem</p>
+        <h2>Why not just ask the agent?</h2>
+        <ul class="compact">
+          <li>Ask to fix 50 things — often 35 get done, then &ldquo;done.&rdquo;</li>
+          <li>No written plan, no proof every item ran, no gate before merge.</li>
+          <li>Expensive to undo partial batches or silent skips.</li>
+        </ul>
+        <p class="sub" style="margin-top:1rem"><strong>Harness framework</strong> = engineered workflow + verification + human sign-off.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Skill vs harness">
+      <div class="slide-inner">
+        <p class="slide-label">Concept</p>
+        <h2>Skill vs harness</h2>
+        <img class="illustration" src="../illustrations/skill-vs-harness.svg" alt="Skill vs harness diagram" width="1200" height="675">
+        <p class="sub">Skill = one step done well. Harness = provable flow around the steps.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Trust model">
+      <div class="slide-inner">
+        <p class="slide-label">Concept</p>
+        <h2>Where trust comes from</h2>
+        <table>
+          <thead><tr><th></th><th>Skill</th><th>Harness</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Defined by</strong></td><td>Doing the task</td><td>Flow + engineering principles</td></tr>
+            <tr><td><strong>Trust</strong></td><td>Implicit (&ldquo;I did it&rdquo;)</td><td>Worklist / gates / trial / isolation / sign-off</td></tr>
+          </tbody>
+        </table>
+        <div class="two-col" style="margin-top:1rem">
+          <div class="card"><h3>Conductor</h3><p>Skills play instruments; harness holds the score.</p></div>
+          <div class="card"><h3>Kitchen</h3><p>Skill = recipe. Harness = banquet prep + taste-test + chef sign-off.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Three questions">
+      <div class="slide-inner">
+        <p class="slide-label">Decision</p>
+        <h2>Three-question rule</h2>
+        <img class="illustration" src="../illustrations/three-question-rule.svg" alt="Three-question rule" width="1200" height="675">
+        <p class="sub"><strong style="color:var(--sage)">3 x YES</strong> -&gt; harness framework &nbsp;|&nbsp; <strong>Any NO</strong> -&gt; use a normal skill</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Not skill-creator">
+      <div class="slide-inner">
+        <p class="slide-label">Clarification</p>
+        <h2>Not the same as skill-creator</h2>
+        <table>
+          <thead><tr><th></th><th>skill-creator</th><th>Harness framework</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Makes</strong></td><td>One reusable skill (a step)</td><td>Workflow that composes skills</td></tr>
+            <tr><td><strong>Solves</strong></td><td>Doing the task well</td><td>Order, gates, trial, nothing skipped</td></tr>
+            <tr><td><strong>Relationship</strong></td><td>The worker</td><td>Production line — calls skill-creator for the orchestrator</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Meta-pipeline">
+      <div class="slide-inner">
+        <p class="slide-label">Build</p>
+        <h2>Four meta-skills</h2>
+        <img class="illustration" src="../illustrations/pipeline-meta-skills.svg" alt="Harness framework meta-skills" width="1200" height="675">
+        <div class="flow">
+          <span>designer</span><span class="arr">-&gt;</span>
+          <span>implementer</span><span class="arr">-&gt;</span>
+          <span>validator</span><span class="arr">-&gt;</span>
+          <span>Run batch</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Stages">
+      <div class="slide-inner">
+        <p class="slide-label">Build</p>
+        <h2>What each stage produces</h2>
+        <table>
+          <thead><tr><th>Stage</th><th>Output</th></tr></thead>
+          <tbody>
+            <tr><td><code>designer</code></td><td><code>HARNESS_DESIGN.md</code> (plan + Mermaid)</td></tr>
+            <tr><td><code>implementer</code></td><td>Orchestrator skill or rules-only artifacts</td></tr>
+            <tr><td><code>validator</code></td><td>Smoke on 1 item + <code>VALIDATION_REPORT.md</code></td></tr>
+            <tr><td><code>enhancer</code></td><td>Repair loop on failure or drift</td></tr>
+          </tbody>
+        </table>
+        <p class="sub" style="margin-top:.75rem">Validator is the only stage that <strong>runs</strong> the harness before production trust.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Runtime">
+      <div class="slide-inner">
+        <p class="slide-label">Runtime</p>
+        <h2>What the orchestrator runs</h2>
+        <img class="illustration" src="../illustrations/orchestrator-batch-loop.svg" alt="Orchestrator batch loop" width="1200" height="675">
+        <p class="sub">Per item: delegate -&gt; gates must pass -&gt; loop -&gt; human review (HITL) -&gt; merge</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Get started">
+      <div class="slide-inner">
+        <p class="slide-label">Get started</p>
+        <h2>Three yeses? Start here.</h2>
+        <div class="two-col">
+          <div class="card card--yes"><h3>1. Design</h3><p><code>designer</code> writes the plan.</p></div>
+          <div class="card card--yes"><h3>2. Build &amp; prove</h3><p><code>implementer</code> + <code>validator</code> on one real item.</p></div>
+          <div class="card card--yes"><h3>3. Run batch</h3><p>Full worklist. Feedback? <code>enhancer</code>.</p></div>
+          <div class="card"><h3>Docs</h3><p><code>docs/harness-framework/</code> · visual guide · illustrations/</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide title-slide" data-title="End">
+      <div class="slide-inner">
+        <p class="tagline">Tagline</p>
+        <h1>Plan once.<br>Test on one.<br>Run on all.</h1>
+        <p class="lead" style="margin-top:1rem">Checks at every step. Your sign-off before the rest.</p>
+        <p class="sub" style="margin-top:2rem">Full guide: harness-framework-overview.html</p>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<nav class="controls" aria-label="Slide navigation">
+  <button type="button" id="prev" aria-label="Previous slide">Prev</button>
+  <span id="counter">1 / 11</span>
+  <div class="progress" aria-hidden="true"><div class="progress-bar" id="progress"></div></div>
+  <span id="slide-title">Title</span>
+  <button type="button" id="next" aria-label="Next slide">Next</button>
+</nav>
+
+<script>
+(function () {
+  const slidesEl = document.getElementById('slides');
+  const slides = [...document.querySelectorAll('.slide')];
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const counter = document.getElementById('counter');
+  const progress = document.getElementById('progress');
+  const slideTitle = document.getElementById('slide-title');
+  let index = 0;
+
+  function goTo(i) {
+    index = Math.max(0, Math.min(slides.length - 1, i));
+    slidesEl.style.transform = 'translateX(-' + (index * 100) + 'vw)';
+    counter.textContent = (index + 1) + ' / ' + slides.length;
+    progress.style.width = ((index + 1) / slides.length * 100) + '%';
+    slideTitle.textContent = slides[index].dataset.title || '';
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+    history.replaceState(null, '', '#slide-' + (index + 1));
+  }
+
+  prevBtn.addEventListener('click', () => goTo(index - 1));
+  nextBtn.addEventListener('click', () => goTo(index + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+      e.preventDefault();
+      goTo(index + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      goTo(index - 1);
+    } else if (e.key === 'Home') {
+      goTo(0);
+    } else if (e.key === 'End') {
+      goTo(slides.length - 1);
+    }
+  });
+
+  const hash = location.hash.match(/^#slide-(\d+)$/);
+  if (hash) goTo(parseInt(hash[1], 10) - 1);
+  else goTo(0);
+})();
+</script>
+</body>
+</html>

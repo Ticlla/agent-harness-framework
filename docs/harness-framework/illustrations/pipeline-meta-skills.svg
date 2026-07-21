@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Harness Framework Meta-Skills</title>
+  <desc id="desc">Designer to implementer to validator to production run, with enhancer repair loop on failure.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2E7D32"/>
+    </marker>
+    <marker id="arrow-grey" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#888888"/>
+    </marker>
+  </defs>
+  <text x="600" y="48" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="600" fill="#1a1a1a">Harness Framework</text>
+  <text x="600" y="82" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" fill="#888888">Four meta-skills -&gt; trusted orchestrator -&gt; production batch</text>
+  <g font-family="IBM Plex Sans, system-ui, sans-serif">
+    <rect x="60" y="180" width="190" height="88" rx="12" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+    <text x="155" y="214" text-anchor="middle" font-size="15" font-weight="600" fill="#2E7D32">designer</text>
+    <text x="155" y="240" text-anchor="middle" font-size="12" fill="#555555">HARNESS_DESIGN.md</text>
+    <rect x="290" y="180" width="210" height="88" rx="12" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+    <text x="395" y="214" text-anchor="middle" font-size="15" font-weight="600" fill="#2E7D32">implementer</text>
+    <text x="395" y="240" text-anchor="middle" font-size="12" fill="#555555">orchestrator skill</text>
+    <rect x="540" y="180" width="200" height="88" rx="12" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+    <text x="640" y="214" text-anchor="middle" font-size="15" font-weight="600" fill="#2E7D32">validator</text>
+    <text x="640" y="240" text-anchor="middle" font-size="12" fill="#555555">smoke + sign-off</text>
+    <rect x="780" y="180" width="200" height="88" rx="12" fill="#2E7D32"/>
+    <text x="880" y="214" text-anchor="middle" font-size="15" font-weight="600" fill="#ffffff">Run batch</text>
+    <text x="880" y="240" text-anchor="middle" font-size="12" fill="#e8f5e9">production</text>
+    <path d="M250 224 L290 224" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M500 224 L540 224" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <path d="M740 224 L780 224" stroke="#2E7D32" stroke-width="2.5" marker-end="url(#arrow)"/>
+  </g>
+  <rect x="390" y="380" width="220" height="88" rx="12" fill="#f5f5f5" stroke="#888888" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="500" y="414" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="15" font-weight="600" fill="#666666">enhancer</text>
+  <text x="500" y="440" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#888888">repair / patch / re-run</text>
+  <path d="M640 268 L640 340 L500 340 L500 380" fill="none" stroke="#888888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-grey)"/>
+  <path d="M500 468 L155 468 L155 268" fill="none" stroke="#888888" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-grey)"/>
+  <text x="600" y="330" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" fill="#888888">FAIL / drift / feedback</text>
+  <rect x="120" y="540" width="960" height="90" rx="12" fill="none" stroke="#dddddd" stroke-width="1.5"/>
+  <circle cx="170" cy="575" r="8" fill="#2E7D32"/>
+  <text x="190" y="580" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#444444">Happy path - design, build, prove, run</text>
+  <circle cx="170" cy="605" r="8" fill="#888888"/>
+  <text x="190" y="610" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#444444">Repair loop - enhancer patches upstream stages</text>
+</svg>

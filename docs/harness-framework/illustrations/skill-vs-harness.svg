@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Skill vs Harness</title>
+  <desc id="desc">A skill does one step well; a harness orchestrates worklist, delegates, gates, and sign-off across a batch.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#888888"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2E7D32"/>
+    </marker>
+  </defs>
+  <text x="600" y="48" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="28" font-weight="600" fill="#1a1a1a">Skill vs Harness</text>
+  <text x="300" y="88" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="16" fill="#888888">One step</text>
+  <text x="900" y="88" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="16" fill="#2E7D32">Provable batch flow</text>
+  <line x1="600" y1="110" x2="600" y2="620" stroke="#dddddd" stroke-width="2" stroke-dasharray="8 6"/>
+  <!-- Skill side -->
+  <rect x="120" y="150" width="360" height="420" rx="16" fill="none" stroke="#cccccc" stroke-width="2"/>
+  <rect x="210" y="210" width="180" height="72" rx="10" fill="#f5f5f5" stroke="#888888" stroke-width="2"/>
+  <text x="300" y="242" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="18" font-weight="600" fill="#555555">Skill</text>
+  <text x="300" y="268" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#888888">How to do one step</text>
+  <rect x="250" y="330" width="100" height="56" rx="8" fill="#eeeeee" stroke="#888888" stroke-width="1.5"/>
+  <text x="300" y="363" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="14" fill="#666666">One item</text>
+  <path d="M300 282 L300 330" stroke="#888888" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="430" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" fill="#888888">Trust: implicit</text>
+  <text x="300" y="520" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" fill="#888888">"I did it"</text>
+  <!-- Harness side -->
+  <rect x="720" y="150" width="360" height="420" rx="16" fill="none" stroke="#2E7D32" stroke-width="2"/>
+  <rect x="810" y="180" width="180" height="56" rx="10" fill="#e8f5e9" stroke="#2E7D32" stroke-width="2"/>
+  <text x="900" y="214" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="16" font-weight="600" fill="#2E7D32">Orchestrator</text>
+  <rect x="780" y="260" width="110" height="44" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="835" y="288" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#2E7D32">Worklist</text>
+  <rect x="910" y="260" width="110" height="44" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="965" y="288" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#2E7D32">Delegates</text>
+  <path d="M890 282 L910 282" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="780" y="330" width="110" height="44" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="835" y="358" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#2E7D32">Gates</text>
+  <rect x="910" y="330" width="110" height="44" rx="8" fill="#ffffff" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="965" y="358" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="12" fill="#2E7D32">Sign-off</text>
+  <path d="M890 352 L910 352" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="835" y="410" width="130" height="44" rx="8" fill="#2E7D32"/>
+  <text x="900" y="438" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Whole batch</text>
+  <path d="M835 304 L835 330 M965 304 L965 330 M900 374 L900 410" stroke="#2E7D32" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="900" y="500" text-anchor="middle" font-family="IBM Plex Sans, system-ui, sans-serif" font-size="13" fill="#2E7D32">Trust: worklist / gates / trial / proof</text>
+</svg>
