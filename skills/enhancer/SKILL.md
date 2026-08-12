@@ -136,6 +136,8 @@ Many of these arrive pre-classified from a **`validator` failure** — its `VALI
 
 The root-cause vocabulary (`failed handoff | drift | runtime mismatch`) is defined canonically in `../validator/references/enhancer-handoff.md`; the rows below map each to a default action. After patching, the loop closes by handing back to `validator` (see `references/rerun-matrix.md`).
 
+**Prompt-caused runtime mismatch (optional diagnostic).** When the root cause is `runtime mismatch` but the design and orchestrator skill are in sync — the orchestrator *behaves* wrong despite a correct design — the failure is likely in the prompt itself. Classify it via `../prompt-engineering/references/failure-taxonomy.md` (18 prompt-failure categories with risk scores) and consult the matching `mistakes-*.md` (`mistakes-hallucinations.md` / `mistakes-structure.md` / `mistakes-context.md` / `mistakes-debt.md` / `mistakes-security.md`) for the fix pattern before patching §13. Record the taxonomy category in the EnhancementBrief so the diagnostic is accountable.
+
 | Signal | Likely layer | Default action |
 |--------|--------------|----------------|
 | `validator` report `failed` (gate/§8/preflight) | Instance (meta if pattern) | Use the report's suggested mode; patch the named target files; sync implementer |
@@ -165,4 +167,5 @@ The root-cause vocabulary (`failed handoff | drift | runtime mismatch`) is defin
 | `references/meta-patch-guide.md` | Editing designer/implementer |
 | `references/instance-patch-guide.md` | Feedback → design §§ |
 | `references/rerun-matrix.md` | When to re-run sibling skills |
+| `../prompt-engineering/references/failure-taxonomy.md` | Classify prompt-caused runtime mismatch → matching `mistakes-*.md` fix patterns |
 | `assets/ENHANCEMENT_BRIEF.template.md` | Brief skeleton |

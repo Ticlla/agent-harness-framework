@@ -88,6 +88,21 @@ Fill orchestrator name (= output folder name), workflow summary, assets, AGENTS 
 
 **Output path:** `harness-designs/<orchestrator>/HARNESS_DESIGN.md` (create directory if new harness).
 
+### 6a. Sharpen the orchestrator prompt (named step — record the result)
+
+The §13 orchestrator prompt *is* a system prompt. Consult the vendored `prompt-engineering` skill before finalizing it:
+
+1. **Model guide** — load the guide matching the target runtime model from `../prompt-engineering/references/`: `claude-fable5-prompting.md` (Fable 5 / Opus 4.8), `gpt56-sol-prompting.md` (GPT-5.6), `gpt5-family-prompting.md` (GPT-5.x), or `gemini3-family-prompting.md` (Gemini). If the design does not pin a model, state that.
+2. **Audit** — run the 8-dimension checklist in `../prompt-engineering/references/prompt-audit-checklist.md` on the drafted prompt; fix any Critical/Warning items you can.
+
+Record a one-line self-report in §13 so the consultation is accountable, not silent:
+
+```text
+Prompt engineering: guide consulted = <which | none — model not pinned>; audit = <clean | N Critical / M Warning fixed>
+```
+
+This step is not gating — §13 is valid without it — but you must record the line either way.
+
 ### 7. Draft §14 (Mermaid) — same session as §13
 
 1. Start from `assets/workflow.mermaid.template.md` (replace placeholders).
@@ -95,7 +110,8 @@ Fill orchestrator name (= output folder name), workflow summary, assets, AGENTS 
    - **Skill bundle** — designer → implementer → orchestrator → delegates
    - **Batch flow** — must match §3 behaviors and §13 graph
    - **Verification** (recommended) — §7 gates as `flowchart LR`
-3. Cross-check: every §6 delegate appears in the skill-bundle diagram.
+   - **Delegation graph** — orchestrator + §6 delegates, nodes are skill names, plain edges
+3. Cross-check: every §6 delegate appears in the skill-bundle **and** delegation-graph diagrams.
 
 ### 8. Update catalog
 
@@ -140,5 +156,6 @@ Do **not** run `init_skill.py` or `package_skill.py`.
 | `references/domain-profiles.md` | Domain priorities |
 | `references/primitives.md` | Primitive catalog |
 | `references/harness-design-layout.md` | Multi-harness paths |
+| `../prompt-engineering/` | Vendored advisory skill — model-specific guides + 8-dimension prompt audit for the §13 orchestrator prompt (load on demand) |
 | `assets/HARNESS_DESIGN.template.md` | Design skeleton |
 | `assets/workflow.mermaid.template.md` | §14 starter |

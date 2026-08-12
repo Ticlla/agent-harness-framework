@@ -35,3 +35,12 @@ flowchart TD
 flowchart LR
   G1[gate 1] --> G2[gate 2] --> OK([done])
 ```
+
+## Delegation graph
+
+```mermaid
+flowchart TD
+  ORCH[{ORCHESTRATOR_NAME}]
+  ORCH --> D1[{DELEGATE_1}]
+  ORCH --> D2[{DELEGATE_2}]
+```

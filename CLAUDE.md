@@ -15,6 +15,7 @@ This repo is the **home for harness framework meta-skills** and the **canonical 
 | `skills/validator/` | Smoke validation → `VALIDATION_REPORT.md` |
 | `skills/enhancer/` | Repair loop from failure signals |
 | `skills/skill-creator/` | Init/package orchestrators (implementer dependency) |
+| `skills/prompt-engineering/` | Vendored advisory skill — prompt techniques, audit checklist, model guides; consulted on demand (see its `PROVENANCE.md`) |
 | `harness-designs/` | Canonical designs; generated copies under `skills/<orch>/references/` are read-only |
 | `docs/harness-framework/` | Onboarding and visual guide |
 

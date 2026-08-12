@@ -22,7 +22,7 @@ Designer confirms:
 - [ ] Row added/updated in `harness-designs/README.md` (create the file from the Catalog template in `harness-design-layout.md` if it does not exist yet)
 - [ ] §14 has at least two `mermaid` fenced blocks (bundle + batch flow)
 - [ ] §14 batch flow matches §3 behaviors and §13 ASCII graph (if present)
-- [ ] §6 delegate table matches §14 skill-bundle nodes
+- [ ] §6 delegate table matches §14 skill-bundle **and** delegation-graph nodes
 - [ ] **Delegate input contract:** for any §6 delegate that **transforms** orchestrator inputs (prepend mention/tag, strip prefix, rewrite paths/URLs, wrap payload), document the contract in §6 (`Input contract` column or bullet per row). §3 must state orchestrator passes runbook/source text **unchanged** unless the design explicitly assigns normalization to the orchestrator (never both orchestrator and delegate).
 - [ ] §7 gate commands are copy-paste-ready (one defined placeholder convention; no concrete/placeholder mix for the same arg)
 - [ ] §7 scope checks catch untracked files (`git status --porcelain`, not `git diff --name-only`)
@@ -56,6 +56,8 @@ Implementer **rejects or pauses** if:
 - `HARNESS_DESIGN_PATH` points at repo-root `HARNESS_DESIGN.md` (pointer only) → use `harness-designs/<name>/HARNESS_DESIGN.md`
 - §14 missing → derive Mermaid per `mermaid-diagrams.md`, then **append §14 to the source design file** under `harness-designs/`
 - §14 present but invalid → fix syntax, sync with §13, update design file §14
+
+**Advisory (non-blocking):** if §13 lacks a `Prompt engineering:` self-report line, note it to the user (designer step 6a records it) — do not block. The orchestrator prompt is still buildable; this only signals the designer skipped the `prompt-engineering` consultation.
 
 ## Sync rule after changes
 

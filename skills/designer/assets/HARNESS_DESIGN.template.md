@@ -181,6 +181,15 @@ flowchart LR
   G1[gate 1] --> G2[gate 2] --> OK([done])
 ```
 
+### Delegation graph
+
+```mermaid
+flowchart TD
+  ORCH[{proposed-skill-name}]
+  ORCH --> D1[delegate skill]
+  ORCH --> D2[delegate skill]
+```
+
 ### implementer next steps
 
 1. Confirm §13 and §14 are complete (`references/design-implementer-handoff.md` checklist).

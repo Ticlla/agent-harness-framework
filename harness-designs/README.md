@@ -4,7 +4,7 @@ This repo now ships the **pipeline creator only** — no in-repo orchestrator in
 
 | Orchestrator | Now lives in |
 |--------------|--------------|
-| `harness-anatomy` | `harness-anatomy-pipeline` (sibling) |
+| `harness-study` | `harness-study-pipeline` (sibling) |
 | `notebooklm-study-pack` | `notebooklm-harness-framework` (sibling) |
 
 New designs appear here once you run `designer`, then build with `implementer` and validate with `validator`.

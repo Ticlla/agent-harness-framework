@@ -2,9 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> The framework for building agent harness pipelines.
+> Design, build, and run **gate-verified agent graphs** — harness orchestrators whose runtime is a directed graph of verified delegate steps.
 
-Meta-skills and design catalog for building **gate-verified orchestrator workflows** in Cursor and other agent CLIs.
+Meta-skills and design catalog for building **gate-verified orchestrator workflows** in Cursor and other agent CLIs. The harness is the mechanism (gates, primitives, verification wrapping the model); the **instance** it produces is a graph of delegate sub-workflows.
 
 Domain skills (code review, req-doc generation, Playwright migration, etc.) live in a **sibling repository** with a `skills/` tree (for example `../agent-skills/`). This repo owns the **pipeline** that designs, builds, validates, and improves harness orchestrators.
 
@@ -49,6 +49,30 @@ designer → implementer → validator → run → (enhancer on failure)
 
 Load the skill index from [AGENTS.md](AGENTS.md) before running any meta-skill.
 
+### Two layers, two shapes
+
+This framework has two distinct layers — don't confuse them:
+
+| Layer | Shape | What it is |
+|-------|-------|------------|
+| **Meta-pipeline** (`designer → implementer → validator → enhancer`) | Linear | How you *build* a harness |
+| **Instance** (the built orchestrator that actually runs) | **Graph** | What the end user loads and executes |
+
+The product you ship is the **instance**, and an instance is a **directed graph**: nodes are delegate sub-workflows, edges are control flow, with branches (gates, human-in-the-loop) and back-edges (retry on failure). "Harness" names the mechanism — the gates, primitives, and verification that wrap the model. "Graph" names the runtime topology of what gets built.
+
+```text
+runtime.mmd (an instance):
+Start → Intake → Setup → {More work?}
+                             │ yes
+                             ▼
+                       Delegate sub-workflow → §7 gate → Pass?
+                              ▲                                │ no
+                              │────────  record failure  ──────┘
+                              │ yes → Human review → PR/merge
+```
+
+See [docs/harness-framework/runtime.mmd](docs/harness-framework/runtime.mmd) and the [primitives reference](skills/designer/references/primitives.md).
+
 ## Repository layout
 
 ```text
@@ -76,7 +100,8 @@ python3 skills/skill-creator/scripts/quick_validate.py skills/enhancer
 
 ## Installing skills locally
 
-Use the bundled installer to copy the five meta-skills into your agent runtime:
+Use the bundled installer to copy the framework skills — the five meta-skills
+plus the vendored `prompt-engineering` advisory skill — into your agent runtime:
 
 ```bash
 ./scripts/install.sh                          # copy into ~/.claude/skills (default)
@@ -91,16 +116,33 @@ skills keep working. Update later with `git pull && ./scripts/install.sh`.
 Options: `--link` (symlink to this repo instead of copying, tracks `git pull` live),
 `--target <path>` (any directory), `--skills a,b,c` (subset), `--help`.
 
+**Windows (PowerShell):** use the bundled [`scripts/install.ps1`](scripts/install.ps1) mirror — same actions and flags, dash-style (`-Target`, `-Link`, `-Skills`, `-Yes`).
+
+```powershell
+./scripts/install.ps1 install                  # copy into %USERPROFILE%\.claude\skills (default)
+./scripts/install.ps1 install -Target cursor   # copy into %USERPROFILE%\.cursor\skills
+./scripts/install.ps1 status
+./scripts/install.ps1 uninstall -Yes
+```
+
+`-Link` creates symlinks; on Windows that may require **Administrator** rights or **Developer Mode** enabled. The script falls back to a copy if it cannot create the symlink.
+
 <details><summary>Manual install (no script)</summary>
 
 ```bash
 # Cursor example — symlink each meta-skill into your skills dir
-for s in designer implementer validator enhancer skill-creator; do
+for s in designer implementer validator enhancer skill-creator prompt-engineering; do
   ln -sfn "$(pwd)/skills/$s" ~/.cursor/skills/$s
 done
 ```
 
 </details>
+
+`prompt-engineering` is **vendored** (not authored here) so a fresh clone is
+self-contained — meta-skills consult its references on demand (model-specific
+guides, the 8-dimension prompt audit, the failure taxonomy) and designed
+harnesses may delegate to it at runtime. Source and sync steps:
+[`skills/prompt-engineering/PROVENANCE.md`](skills/prompt-engineering/PROVENANCE.md).
 
 Also install domain skills from your sibling delegate repo when a harness references them.
 

@@ -44,6 +44,13 @@ Use `assets/workflow.mermaid.template.md` as a starting point.
 
 - Sequential §7 gates as `flowchart LR`
 
+### 4. Delegation graph (`flowchart TD`)
+
+- High-level runtime topology of the designed harness; assumes the framework, not a framework overview
+- Nodes are skill **names only** (orchestrator + each §6 delegate); no role/description in the label
+- Edges are plain delegation (`A --> B`); no labels — conditions, fan-out, and HITL live in the batch flow (diagram 2)
+- Source of truth for the node set is §6 delegates; this graph must list the same skills
+
 ## Syntax rules
 
 - Use `flowchart TD` or `flowchart LR`; avoid deprecated `graph`

@@ -59,6 +59,8 @@ Run the orchestrator-skill checks in `references/preflight-checklist.md`: files 
 
 **If preflight fails → skip the smoke-run, jump to step 7 with `failed`. Never run a broken skill.**
 
+**Optional prompt-quality audit (advisory, never gating).** For a deeper read of the orchestrator's `SKILL.md` prompt — useful when the smoke-run is clean but you want to flag latent prompt risks, or in `rules-only` mode where there is no behavioral run — work through `../prompt-engineering/references/prompt-audit-checklist.md` and record notable Critical/Warning items under a `Prompt audit` section in the report. Record `Prompt audit: n/a` if you skip it, so the report shows the check was considered. This never changes `validated`/`failed` on its own.
+
 ### 3. Pick worklist item(s)
 
 Per `references/pick-worklist-item.md`: from the deterministic §3 selector, pick the smallest/canonical representative. For `migration`/`batch-processing` domains (§1), pick a **second** item too, to exercise the loop/dedup/termination boundary once (two-item smoke). Record the item(s) + why in the report. If the selector is ambiguous, ask the operator.
@@ -119,4 +121,5 @@ Always — pass or fail. Leave the target repo working tree clean; nothing pushe
 | `references/pick-worklist-item.md` | Choose one representative §3 item |
 | `references/smoke-run-worktree.md` | Isolated worktree run + teardown |
 | `references/enhancer-handoff.md` | Map failures → enhancer signal vocabulary |
+| `../prompt-engineering/references/prompt-audit-checklist.md` | Optional advisory 8-dimension prompt audit of the orchestrator `SKILL.md` |
 | `assets/VALIDATION_REPORT.template.md` | Report skeleton (failure block = enhancer-compatible) |

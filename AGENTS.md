@@ -13,8 +13,9 @@ Domain delegate skills (e.g. `code-review`, `generate-req-doc`) live in a siblin
 | `validator` | Proves a built or resynced harness before production trust. Smoke-runs one real §3 worklist item in a throwaway git worktree (or static review for rules-only), executes §7 gates, records human sign-off in `VALIDATION_REPORT.md`. On failure, emits `enhancer` signal. Not for design, build, or full batch runtime. |
 | `enhancer` | Improves meta pipeline skills and/or one harness instance from user feedback or failure signals (`VALIDATION_REPORT` fail, implementer preflight, design↔skill drift, runtime mismatch). Writes `EnhancementBrief`, patches targeted files, delegates `designer` / `implementer` / `validator` re-runs. Not for greenfield design or first-time build. |
 | `skill-creator` | Guide for creating effective skills. Use when creating a new skill or updating an existing skill that extends capabilities with specialized knowledge, workflows, or tool integrations. Used by `implementer` to init and package orchestrator skills. |
+| `prompt-engineering` | **Vendored** advisory skill (see `skills/prompt-engineering/PROVENANCE.md`) — universal prompt-engineering techniques, an 8-dimension prompt-audit checklist, model-specific guides (Claude/Fable 5, GPT-5/5.6, Gemini 3), and a failure taxonomy. Consulted on demand by `designer` (crafting/auditing the orchestrator prompt), `validator` (prompt-audit dimension), and `enhancer` (failure→prompt-fix mapping); not a hard dependency. |
 
-Built orchestrator instances have migrated to standalone repos (siblings): `harness-anatomy` → `harness-anatomy-pipeline`; `notebooklm-study-pack` → `notebooklm-harness-framework`.
+Built orchestrator instances have migrated to standalone repos (siblings): `harness-study` → `harness-study-pipeline`; `notebooklm-study-pack` → `notebooklm-harness-framework`.
 
 ## Loading strategy
 

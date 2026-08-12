@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
-# install.sh — install / uninstall / inspect Agent Harness Framework meta-skills.
+# install.sh — install / uninstall / inspect Agent Harness Framework skills.
 #
-# Default action: copy the five meta-skills into ~/.claude/skills (self-contained;
-# the repo can be moved or deleted afterwards and the skills keep working).
+# Default action: copy the framework skills into ~/.claude/skills (self-contained;
+# the repo can be moved or deleted afterwards and the skills keep working). The
+# default set is the five meta-skills plus `prompt-engineering` (a vendored
+# advisory skill that meta-skills consult on demand; see
+# skills/prompt-engineering/PROVENANCE.md).
 #
 # Usage:
 #   scripts/install.sh install   [--target claude|cursor|<path>] [--link] [--skills a,b,c] [-y]
@@ -16,7 +19,7 @@
 #   --link                          Symlink skills to this repo instead of copying them.
 #                                   Tracks `git pull` live, but the repo must stay in place.
 #   --skills a,b,c                  Comma-separated subset. Default: designer,implementer,
-#                                   validator,enhancer,skill-creator.
+#                                   validator,enhancer,skill-creator,prompt-engineering.
 #   -y                              Skip confirmation prompts (uninstall).
 #   --help, -h                      Show this help.
 #
@@ -29,7 +32,7 @@
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-DEFAULT_SKILLS="designer,implementer,validator,enhancer,skill-creator"
+DEFAULT_SKILLS="designer,implementer,validator,enhancer,skill-creator,prompt-engineering"
 
 # --- helpers ----------------------------------------------------------------
 
