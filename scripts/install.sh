@@ -8,14 +8,14 @@
 # skills/prompt-engineering/PROVENANCE.md).
 #
 # Usage:
-#   scripts/install.sh install   [--target claude|cursor|<path>] [--link] [--skills a,b,c] [-y]
-#   scripts/install.sh uninstall [--target claude|cursor|<path>] [--skills a,b,c] [-y]
-#   scripts/install.sh status    [--target claude|cursor|<path>]
+#   scripts/install.sh install   [--target claude|cursor|gemini|<path>] [--link] [--skills a,b,c] [-y]
+#   scripts/install.sh uninstall [--target claude|cursor|gemini|<path>] [--skills a,b,c] [-y]
+#   scripts/install.sh status    [--target claude|cursor|gemini|<path>]
 #   scripts/install.sh [--help|-h]
 #
 # Options:
-#   --target claude|cursor|<path>   Where to install. claude=~/.claude/skills (default),
-#                                   cursor=~/.cursor/skills, or any directory path.
+#   --target claude|cursor|gemini|<path>   Where to install. claude=~/.claude/skills (default),
+#                                   cursor=~/.cursor/skills, gemini=~/.gemini/skills, or any path.
 #   --link                          Symlink skills to this repo instead of copying them.
 #                                   Tracks `git pull` live, but the repo must stay in place.
 #   --skills a,b,c                  Comma-separated subset. Default: designer,implementer,
@@ -47,6 +47,7 @@ resolve_target() {
   case "$1" in
     claude) printf '%s' "$HOME/.claude/skills" ;;
     cursor) printf '%s' "$HOME/.cursor/skills" ;;
+    gemini) printf '%s' "$HOME/.gemini/skills" ;;
     *)      printf '%s' "$1" ;;
   esac
 }

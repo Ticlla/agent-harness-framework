@@ -4,7 +4,7 @@
 
 > Design, build, and run **gate-verified agent graphs** — harness orchestrators whose runtime is a directed graph of verified delegate steps.
 
-Meta-skills and design catalog for building **gate-verified orchestrator workflows** in Cursor and other agent CLIs. The harness is the mechanism (gates, primitives, verification wrapping the model); the **instance** it produces is a graph of delegate sub-workflows.
+Meta-skills and design catalog for building **gate-verified orchestrator workflows** in Claude Code, Cursor, Gemini CLI, and other agent CLIs that follow the open Agent Skills standard (`SKILL.md`). The harness is the mechanism (gates, primitives, verification wrapping the model); the **instance** it produces is a graph of delegate sub-workflows.
 
 Domain skills (code review, req-doc generation, Playwright migration, etc.) live in a **sibling repository** with a `skills/` tree (for example `../agent-skills/`). This repo owns the **pipeline** that designs, builds, validates, and improves harness orchestrators.
 
@@ -106,6 +106,7 @@ plus the vendored `prompt-engineering` advisory skill — into your agent runtim
 ```bash
 ./scripts/install.sh                          # copy into ~/.claude/skills (default)
 ./scripts/install.sh install --target cursor  # copy into ~/.cursor/skills
+./scripts/install.sh install --target gemini  # copy into ~/.gemini/skills
 ./scripts/install.sh status                   # show what is installed where
 ./scripts/install.sh uninstall -y             # remove them (leaves other skills alone)
 ```
@@ -121,6 +122,7 @@ Options: `--link` (symlink to this repo instead of copying, tracks `git pull` li
 ```powershell
 ./scripts/install.ps1 install                  # copy into %USERPROFILE%\.claude\skills (default)
 ./scripts/install.ps1 install -Target cursor   # copy into %USERPROFILE%\.cursor\skills
+./scripts/install.ps1 install -Target gemini   # copy into %USERPROFILE%\.gemini\skills
 ./scripts/install.ps1 status
 ./scripts/install.ps1 uninstall -Yes
 ```

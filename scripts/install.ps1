@@ -37,7 +37,8 @@ param(
   [ValidateSet('install', 'uninstall', 'status')]
   [string]$Action = 'install',
 
-  # claude = %USERPROFILE%\.claude\skills, cursor = %USERPROFILE%\.cursor\skills, or any path.
+  # claude = %USERPROFILE%\.claude\skills, cursor = %USERPROFILE%\.cursor\skills,
+  # gemini = %USERPROFILE%\.gemini\skills, or any path.
   [string]$Target = 'claude',
 
   # Symlink skills to this repo instead of copying them.
@@ -66,6 +67,7 @@ function Resolve-TargetPath($t) {
   switch ($t) {
     'claude' { Join-Path $env:USERPROFILE '.claude\skills' }
     'cursor' { Join-Path $env:USERPROFILE '.cursor\skills' }
+    'gemini' { Join-Path $env:USERPROFILE '.gemini\skills' }
     default  { $t }
   }
 }
