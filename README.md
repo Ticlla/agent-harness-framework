@@ -81,7 +81,7 @@ harness-designs/         Canonical designs + validation reports (catalog in READ
 docs/harness-framework/   Onboarding docs, diagrams, visual HTML guide
 ```
 
-Orchestrator **runtime skills** may be authored here or in another repo — §13 **Orchestrator home** in each `HARNESS_DESIGN.md` records where the implementer scaffolds. **Delegate skills** are resolved by name from sibling repos (`../*/skills/`), installed skill dirs, and this repo.
+Orchestrator **runtime skills** may be authored here or in another repo — §13 **Orchestrator home** in each `HARNESS_DESIGN.md` records where the implementer scaffolds. **Delegate skills** resolve **by name from the install dir** (`~/.claude/skills` / `~/.cursor/skills`) — sibling `../*/skills/` repos are for **discovery only**: install or symlink a delegate into the install dir and record that resolved path in the design §6.
 
 ## Environment variables
 

@@ -23,7 +23,7 @@ This repo is the **home for harness framework meta-skills** and the **canonical 
 
 - **Canonical design:** edit only `harness-designs/<orchestrator>/HARNESS_DESIGN.md`.
 - **Orchestrator home:** §13 may point to this repo's `skills/` or an external repo.
-- **Delegates:** discovered from sibling `../*/skills/`, `~/.cursor/skills`, `~/.claude/skills`, and paths in each design §6.
+- **Delegates:** discovery scans sibling `../*/skills/` + install dirs; **resolution is install-dir-authoritative** (`~/.claude/skills`, `~/.cursor/skills`) — §6 records the resolved install path, validated exactly.
 - **Validate skills:** `python3 skills/skill-creator/scripts/quick_validate.py skills/<name>` (Python 3 required — stdlib only; Windows: use `python` or `py -3`, since `python3` is rarely on PATH)
 
 ## Do not commit unless asked

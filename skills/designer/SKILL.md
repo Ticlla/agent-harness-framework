@@ -37,7 +37,7 @@ If missing, ask briefly (max one message):
 2. **Outcome** — one sentence for "done"
 3. **Constraints** — risk, autonomy, multi-session
 4. **Real repos** — actual source repo(s) the harness reads and target repo(s) it writes (paths). Required if the harness operates on real codebases.
-5. **Existing skills (multi-repo)** — delegates may live beyond this repo. Discover across: this repo (`AGENTS.md`/`skills/`), installed dirs (`~/.claude/skills`, `~/.cursor/skills`), and sibling repos (`../*/skills/`). See step 2.
+5. **Existing skills (multi-repo)** — delegates may live beyond this repo. **Discovery** scans this repo (`AGENTS.md`/`skills/`), the install dir (`~/.claude/skills`, `~/.cursor/skills`), and sibling repos (`../*/skills/`); **resolution is install-dir-authoritative** — see step 2.
 6. **Orchestrator name** — kebab-case; becomes `harness-designs/<name>/` (must not collide with existing catalog in `harness-designs/README.md`)
 7. **Orchestrator home** — repo/dir where the orchestrator skill will be authored. Default: this repo's `skills/`. May be another skills repo or install dir — record it in §13.
 
@@ -49,13 +49,15 @@ Map to `references/domain-profiles.md`; note hybrids in §2.
 
 ### 2. Inventory delegate skills (multi-repo)
 
-Discover available delegates across all skill locations, in precedence order:
+**Discovery** may scan all skill locations (this repo, install dirs, sibling `../*/skills/`) to find what exists. **Resolution is install-dir-authoritative**: the orchestrator runtime loads delegates by name from the **install dir** (`~/.claude/skills`, or `~/.cursor/skills` for Cursor targets) — that is where the framework's `install.sh` puts its own skills and where sibling-repo skills must be installed or symlinked.
 
-1. **This repo** — `AGENTS.md` / `skills/`
-2. **Installed dirs** — `~/.claude/skills`, `~/.cursor/skills`
-3. **Sibling repos** — `../*/skills/` (other local skill repos)
+Rules:
 
-List delegates in §6 (reference only — do not copy their procedures) and **record each one's location** (this repo / installed / `../<repo>/skills/`) — it determines runtime availability where the orchestrator runs (delegates resolve by name from the install location). Do not propose creating a skill that already exists in any of these locations.
+1. **§6 must record the resolved install path** per delegate (e.g. `~/.claude/skills/<name>`) — not just a name or a sibling-repo path. The validator checks that exact path.
+2. A delegate found only in a sibling repo (`../<repo>/skills/<name>`) and **not** present in the install dir is an **environment gap**: record it in §6 with the fix ("install/symlink `../<repo>/skills/<name>` into `~/.claude/skills/`") and flag it in §8 as a setup checkpoint — never assume the runtime will scan the sibling repo.
+3. Shadowing: if the same skill name exists in more than one location, §6 records which one the install dir actually serves and notes the duplicates. Do not silently rely on scan order.
+
+List delegates in §6 (reference only — do not copy their procedures). Do not propose creating a skill that already exists in any scanned location.
 
 ### 3. Ground-truth reconnaissance
 
