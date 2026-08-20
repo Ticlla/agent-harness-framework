@@ -85,6 +85,16 @@ Commands and checks before the agent may claim completion. Authoring rules:
 - MIGRATION/PORTING harnesses: add a fidelity-parity gate (every source
   assertion/behavior represented in the target or explicitly waived) — a soft
   heuristic (target assert count < source check count → flag) may feed §8 review.
+- MACHINE-CHECKED GATES: a gate that expresses a DETERMINISTIC check (count,
+  threshold, regex/form, path shape, presence, resolution) MUST be an executable
+  command or a script under scripts/ — never prose for the model to "verify".
+  Prose/manual gates are reserved for HUMAN-JUDGMENT checks (fidelity, brand,
+  pedagogy — §8 material). Rationale: a deterministic check written as a
+  checklist item is unverifiable at runtime and rots into sign-off theater
+  (real failure: a pack marked done while failing word-count + grounding gates).
+  If a candidate gate is deterministic, write the script invocation here and
+  note the script in §13's scripts/ row; if it is human judgment, say so
+  explicitly ("§8 judgment gate") so the implementer does not fake a command.
 -->
 
 ```bash

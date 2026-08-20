@@ -26,6 +26,11 @@ If **any** item fails → stop, do not smoke-run, emit a `failed` report with th
    - the real **filter mechanism** (flag vs env var),
    - required env / baseURL noted (a script defaulting to localhost with no server → connection-refused).
    This checks *shape*, not execution — execution happens in the smoke-run.
+2b. **Deterministic gates are machine-checked (§7 gate executability rule)** — classify every §7 gate:
+   - **Executable** (command/script invocation) → pass.
+   - **Labeled "§8 judgment gate"** (human judgment: fidelity, brand, pedagogy) → pass; it is §8 material, not a §7 command.
+   - **Prose expressing a deterministic check** ("verify every claim has a citation", "ensure ≥N words", "check the path matches ...") → **fail**. A deterministic check (count, threshold, regex/form, path shape, presence, resolution) written as prose is unverifiable at runtime and rots into sign-off theater. Failure signal: `Trigger: system`, root cause `drift` (design defect — §7 gate not executable), suggested fix: designer converts the gate to a `scripts/` invocation.
+   Rationale (real case): a pack harness marked a subject "done" while failing its word-count and grounding gates — both checks existed only as prose. Machine gates make "done" mean provable.
 3. **§6 delegates resolve** — for every delegate named in §6 / `references/skill-delegation.md`:
    - resolve it to a concrete `SKILL.md` at the orchestrator home (this repo `skills/`, installed `~/.claude|.cursor/skills`, or a sibling `../<repo>/skills/`) and confirm that file is **readable** — a path that exists as a dir but has no readable `SKILL.md` is a fail.
    - for a delegate that ships a Python venv (`scripts/` + `.venv`), confirm `.venv/bin/python` exists at the resolved path — a missing interpreter means the behavioral run would crash on first delegation.

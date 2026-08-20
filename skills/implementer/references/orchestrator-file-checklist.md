@@ -21,7 +21,7 @@ After `init_skill.py <name> --path skills`, ensure:
 ## Optional (per §13)
 
 - [ ] `assets/*.template.md` — repo artifacts orchestrator copies to worktree
-- [ ] `scripts/` — only if §13 requires deterministic automation
+- [ ] `scripts/` — **required when any §7 gate expresses a deterministic check** (count, threshold, regex/form, path shape, presence, resolution): each such gate gets an executable script + copy-paste invocation in the orchestrator SKILL.md. A deterministic check left as prose ("verify every claim has a citation") is a **build defect** — go back to the design (§7 gate executability rule), do not fake a command. Prose gates are only legitimate when the design labels them "§8 judgment gate" (human judgment: fidelity, brand, pedagogy).
 
 ## Must not include
 

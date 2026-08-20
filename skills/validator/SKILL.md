@@ -55,7 +55,7 @@ If **orchestrator-skill** → resolve the **orchestrator home** from §13 (defau
 
 ### 2. Light preflight (fail-fast, orchestrator-skill only)
 
-Run the orchestrator-skill checks in `references/preflight-checklist.md`: files present; §7 gates **runnable-shaped** (command + where-to-run + filter syntax); §6 delegates resolve at the orchestrator home. This is a sanity gate — **not** the enhancer's full drift matrix (`../enhancer/references/instance-patch-guide.md` owns deep drift).
+Run the orchestrator-skill checks in `references/preflight-checklist.md`: files present; §7 gates **runnable-shaped** (command + where-to-run + filter syntax); **deterministic gates are machine-checked** (a deterministic check expressed as prose = fail — §7 gate executability rule); §6 delegates resolve at the orchestrator home. This is a sanity gate — **not** the enhancer's full drift matrix (`../enhancer/references/instance-patch-guide.md` owns deep drift).
 
 **If preflight fails → skip the smoke-run, jump to step 7 with `failed`. Never run a broken skill.**
 

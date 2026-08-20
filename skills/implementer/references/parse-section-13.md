@@ -36,6 +36,7 @@ Treat as **historical hint** only — **`implementer`** replaces direct user exe
 - [ ] Orchestrator name is kebab-case, no spaces
 - [ ] At least one delegate OR explicit rules-only mode
 - [ ] §7 verification commands present in design (copy into orchestrator SKILL.md)
+- [ ] Every deterministic §7 gate maps to an executable command/script (§7 gate executability rule) — prose-only deterministic gates = stop and ask for a design fix; "§8 judgment gate" labels are the only manual gates allowed
 
 ## If fields are missing
 

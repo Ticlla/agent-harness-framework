@@ -82,6 +82,8 @@ Read `references/primitives.md` and the matching profile in `references/domain-p
 
 Use `assets/HARNESS_DESIGN.template.md`. Complete architecture, §6 delegates, §7 gates, §10 expiry. Fill §2 repos, §3 worklist source, §7 commands/paths, and §12 conventions **from step 3 recon** — not from assumption.
 
+**§7 gate executability rule:** a gate expressing a **deterministic** check (count, threshold, regex/form, path shape, presence, resolution) MUST be an executable command or `scripts/` invocation — never prose for the model to "verify". Prose gates are only for **human-judgment** checks and must say so ("§8 judgment gate"). A deterministic check written as a checklist item is unverifiable at runtime — the validator's preflight fails it.
+
 ### 6. Draft §13 (implementation plan)
 
 Fill orchestrator name (= output folder name), workflow summary, assets, AGENTS index line. See `references/implementation-via-skills.md`.
@@ -136,6 +138,7 @@ Do **not** run `init_skill.py` or `package_skill.py`.
 - §14 Mermaid must be valid (renderable) syntax
 - Keep design doc and diagrams consistent with §3/§13
 - §2 repos, §7 commands/paths/scope-lock, and §3 worklist source must be **derived from the real repo** (step 3 recon), never invented
+- Every deterministic §7 gate must be an executable command/script — no prose-only deterministic checks; human-judgment gates must be labeled as such
 
 ## Relationship to other skills
 
