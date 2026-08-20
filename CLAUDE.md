@@ -29,3 +29,7 @@ This repo is the **home for harness framework meta-skills** and the **canonical 
 ## Do not commit unless asked
 
 Wait for explicit user confirmation before `git commit` or `git push`.
+
+## Commit attribution
+
+Do **not** add Claude as an author. No `Co-Authored-By: Claude` trailer, no `Generated with Claude Code` line, no Claude attribution anywhere in commit messages, PR bodies, or changelog entries. Commits are authored by the repo's git user only.
